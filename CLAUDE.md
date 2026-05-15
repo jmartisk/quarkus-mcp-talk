@@ -22,6 +22,6 @@ A Quarkus application that serves a reveal.js slide deck with live demo capabili
 
 To add a new demo type: add an `init*Panels()` function in `demos.js`, call it from `initAllDemos()`, add corresponding CSS in `theme.css`, and embed the HTML in `slides.md`.
 
-**reveal.js integration:** The `org.mvnpm:reveal.js` dependency (scope `provided`) is served by Quarkus's static resource handler. The mvnpm repository (`https://repo.mvnpm.org/maven2`) must remain in `pom.xml` for this to resolve. If upgrading reveal.js, update the version in both `pom.xml` and all `/_static/reveal.js/` paths in `index.html`.
+**reveal.js integration:** The `org.mvnpm:reveal.js` dependency (scope `provided`) is served by Quarkus's static resource handler. The `quarkus-web-dependency-locator` extension provides version-free paths (`/_static/reveal.js/` instead of `/_static/reveal.js/5.2.1/`) and generates an importmap at `/_importmap/generated_importmap.js`. The main reveal.js module is imported via the bare specifier `reveal.js`; plugins use version-free paths. The mvnpm repository (`https://repo.mvnpm.org/maven2`) must remain in `pom.xml` for this to resolve. If upgrading reveal.js, only the version in `pom.xml` needs updating.
 
 **WebSocket protocol:** `ChatWebSocket` returns JSON `{"reply": "...", "blocked": boolean}`. The `blocked` field controls CSS styling (red error style vs normal response). Maintain this contract when modifying the endpoint.

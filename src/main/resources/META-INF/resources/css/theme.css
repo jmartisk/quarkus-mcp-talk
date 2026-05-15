@@ -329,6 +329,133 @@
     background: #4568c9;
 }
 
+/* Icon grid for integration slides */
+.icon-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px;
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+.icon-grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    width: 80px;
+}
+
+.icon-grid-item img {
+    width: 48px;
+    height: 48px;
+}
+
+.icon-grid-item span {
+    font-size: 0.5em;
+    text-align: center;
+    color: #555;
+    line-height: 1.2;
+}
+
+/* Security architecture diagram */
+.security-diagram {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    margin-top: 10px;
+    font-family: var(--font-body);
+    font-size: 0.65em;
+}
+
+.sec-main-row, .sec-token-flow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.sec-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.sec-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.sec-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.sec-arrow-label {
+    color: var(--color-blue);
+    font-weight: 600;
+    font-size: 1.1em;
+    white-space: nowrap;
+}
+
+.sec-arrow-label em {
+    font-style: normal;
+    font-weight: 400;
+}
+
+.sec-group {
+    border: 2px dashed var(--color-blue);
+    border-radius: 12px;
+    padding: 10px 20px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.sec-group-label {
+    font-weight: 700;
+    font-size: 0.85em;
+    color: var(--color-blue);
+}
+
+.sec-oidc-group {
+    padding: 10px 24px 16px;
+}
+
+.sec-providers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    max-width: 380px;
+}
+
+.sec-providers img {
+    width: 30px;
+    height: 30px;
+}
+
+.sec-mcp-flow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.sec-verify-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sec-oidc-group-small {
+    padding: 6px 16px;
+}
+
 /* Navigation arrows */
 .reveal .controls button {
     color: var(--color-blue);

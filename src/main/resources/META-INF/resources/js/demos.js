@@ -22,7 +22,7 @@ function initChatPanels() {
         const sendBtn = panel.querySelector('.chat-send');
         const messages = panel.querySelector('.chat-messages');
 
-        const wsUrl = 'ws://' + location.host + '/ws/chat';
+        const wsUrl = 'ws://' + location.host + panel.attributes["url"].value;
         const ws = new WebSocket(wsUrl);
 
         ws.onmessage = (event) => {

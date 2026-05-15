@@ -22,7 +22,10 @@ public class ServerDemo {
     @Path("/hello")
     @Produces(MediaType.APPLICATION_JSON)
     public Map<String, String> hello(String name) {
-        ToolExecutionRequest toolRequest = ToolExecutionRequest.builder().name("hello").arguments("{\"name\": \"" + name +"\"}").build();
+        ToolExecutionRequest toolRequest = ToolExecutionRequest.builder()
+                .name("hello")
+                .arguments("{\"name\": \"" + name +"\"}")
+                .build();
         return Map.of("message", mcpClient.executeTool(toolRequest).resultText());
     }
 
