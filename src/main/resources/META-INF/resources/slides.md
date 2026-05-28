@@ -13,9 +13,10 @@ Note: !!!Speaker notes go here. They are visible in the presenter view (press S)
 ---
 ## About me
 <ul>
-    <li>Quarkus Engineer at IBM, formerly Red Hat</li>
+    <li>Quarkus Engineer at IBM, "reallocated" from Red Hat</li>
+    <li>On Quarkus since version 0.12.0</li>
     <li>Author of the Quarkus MCP client library (langchain4j)
-    <li>Quarkus contributions: mostly AI stuff, GraphQL</li>
+    <li>Quarkus contributions: mostly AI stuff, GraphQL, observability</li>
     <li>Also, CVE patches and LTS release coordination</li>
     <li>Co-author of Quarkus in Action (next slide...)</li>
 </ul>
@@ -59,6 +60,21 @@ Chapter 3: connecting an AI-infused Quarkus application to your MCP server
     <li>Supported transports: STDIO, Streamable HTTP, SSE (legacy), WebSocket (experimental)</li>
     <li>Now also part of the enterprise supported product (IBM Enterprise Build of Quarkus)</li>
 </ul>
+
+---
+## Not to confuse with Quarkus Agent MCP and Quarkus Dev MCP!
+
+- Quarkus Dev MCP 
+  - Quarkus app running in Dev mode exposes itself as an MCP server
+  - Exposes tools for diagnosing the application state
+  - Everything you can manually test in Dev UI can also be invoked by a coding agent
+- Quarkus Agent MCP (https://quarkus.io/blog/introducing-agent-mcp/)
+  - Separately running MCP server that you should add to your coding agent
+  - Handles Quarkus lifecycle (start, stop) 
+  - Exposes searchable documentation to the coding agent
+  - Forwards agent's tool calls to the Dev MCP server
+  - Quarkus extensions contribute agent skills to explain how they should be used
+- Topic for another talk...
 
 ---
 ## Quarkus MCP client support
