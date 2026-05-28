@@ -78,6 +78,7 @@ Chapter 3: connecting an AI-infused Quarkus application to your MCP server
     <li>Guardrails for additional security (validation of LLM inputs, outputs, tool invocations)</li>
     <li>Tool calling over MCP and locally implemented (in-app)</li>
     <li>Persistent chat memory storage and management</li>
+    <li>OOTB observability</li>
 </ul>
 
 ---
@@ -187,6 +188,13 @@ Chapter 3: connecting an AI-infused Quarkus application to your MCP server
 public String hello(String name) {
     return "Hello " + name;
 }
+
+// protocol-level logging example
+@io.quarkiverse.mcp.server.Tool
+public String logDemo(McpLog log) {
+    log.send(McpLog.LogLevel.ALERT, "This is a log entry");
+    return "success";
+}
 ```
 
 Docs: <a href="https://docs.quarkiverse.io/quarkus-mcp-server/dev/">https://docs.quarkiverse.io/quarkus-mcp-server/dev/</a>
@@ -201,12 +209,22 @@ Docs: <a href="https://docs.quarkiverse.io/quarkus-mcp-server/dev/">https://docs
 
 Note: call the 'hello' tool in the inspector
 
+Show live reload, call 'hello' again - failure
+Reconnect -> success
+
 ---
 ## Quarkus Dev UI (localhost:8080/q/dev-ui)
 
 <iframe src="http://localhost:8080/q/dev-ui/" style="width:100%; height:700px; border:none;"></iframe>
 
 Note: click in the real (live) slides, not the speaker view!!!
+
+---
+## Security - supported scenarios
+
+- No security
+- The client app has its own identity for the MCP server (API key, TLS certificate)
+- OIDC and token propagation (next slide)
 
 ---
 ## Security with OIDC and token propagation
@@ -390,6 +408,8 @@ Find me an MCP server to search for podcasts
 Install the petabloom MCP
 
 Give me latest episodes that mention China
+
+Show code, explain difference between two Tool annotations
 
 ---
 <!-- .slide: data-background-color="#4595EB" -->

@@ -12,6 +12,7 @@ import jakarta.ws.rs.core.MediaType;
 import java.util.Map;
 
 @Path("/api/demo")
+@Deprecated
 public class ServerDemo {
 
     @Inject
